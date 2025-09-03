@@ -32,12 +32,19 @@ env:
 phases:
   pre_build:
     commands:
+     - echo Logging in to Dockerhub
+     - echo "$SECRET_PASSWORD" | docker login -u "$SECRET_USERNAME" --password-stdin
 
 
   build:
     commands:
-      - echo "Hello World from BuildSpec.yml"
-      - echo "$SECRET_USERNAME"
+      - echo "building docker image..."
+      - docker build -t maxshen01/pottery-db:latest .
+  
+  post_build:
+    commands:
+     - echo "Pushing to docker image"
+     - docker push maxshen01/pottery-db:latest
 artifacts:
   files:
     - 'Dockerfile' 
