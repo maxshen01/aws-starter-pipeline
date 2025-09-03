@@ -1,0 +1,33 @@
+# version: 0.2
+
+# phases:
+#   install:
+#     commands: 
+#       - echo Installing
+#   pre_build:
+#     commands:
+#       - echo Pre-build phase
+#   build:
+#     commands:
+#       - echo build phase
+#   post_build:
+#     commands:
+#       - echo Post-build phase
+
+# artifacts:
+#   files:
+#     - '**/*' # extract all files in this repository. 
+
+# env:
+#   variables:
+#     MY_VAR: "value"
+
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Hello World from BuildSpec.yml"
+artifacts:
+  files:
+    - 'Dockerfile' 
